@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects, categoryNames } from '../../lib/projects.js';
+const sorted = [...projects].sort((a,b) => (Number(b.featured)-Number(a.featured)) || (b.updated_at||'').localeCompare(a.updated_at||''));
+---
+<Layout title="Projects | ysogabe" description="ものづくりの一覧。GitHubに公開しているソフトウェアや実験を、やさしく紹介します。">
+  <section class="page-intro wrap">
+    <span class="eyebrow">THE LITTLE COLLECTION</span>
+    <div class="page-title-row"><div><h1>Projects<span class="heading-sprig">✿</span></h1><p>「こんなものがあったらいいな」から生まれた、いろいろな取り組み。<br />気になったものから、のぞいてみてください。</p></div><div class="page-decoration" aria-hidden="true">☘ <span>✳</span> ✿</div></div>
+  </section>
+  <section class="catalog-layout wrap" aria-label="プロジェクトを探す">
+    <aside class="catalog-aside">
+      <div class="aside-title">✿ <span>カテゴリー</span></div>
+      <div class="aside-caption">興味のある分野から探す</div>
+      <nav class="aside-category" aria-label="カテゴリー">{categoryNames.map((name,index)=><button class:list={['side-filter',{selected:index===0}]} type="button" data-filter={name}><span>{['◈','⌂','▤','◎','▧','✳','❋'][index]}</span>{name}</button>)}</nav>
+      <div class="aside-bottom"><span>☘</span><p>小さなアイデアを、<br />ひとつずつ。</p><small>更新情報はGitHubと連動しています。</small></div>
+    </aside>
+    <div class="catalog-main">
+      <div class="catalog-tools">
+        <div class="catalog-heading"><b>すべてのプロジェクト</b><span id="project-count">{projects.length}件</span></div>
+        <div class="catalog-controls"><label class="search-field"><span>⌕</span><input id="project-search" type="search" placeholder="キーワードで探す" aria-label="プロジェクトを検索" /></label><label class="sort-field"><span class="sr-only">並び替え</span><select id="project-sort"><option value="featured">おすすめ順</option><option value="recent">最近更新した順</option><option value="name">名前順</option></select></label></div>
+      </div>
+      <div class="mobile-filters" aria-label="カテゴリーで絞り込む">{categoryNames.map((name,index)=><button class:list={['filter-pill',{selected:index===0}]} data-filter={name} type="button">{name}</button>)}</div>
+      <div id="project-grid" class="card-grid catalog-grid">{sorted.map((project,index)=><ProjectCard project={project} index={index} />)}</div>
+      <div id="empty-projects" class="empty-state" hidden><div>🌷</div><h2>まだ見つかりませんでした</h2><p>別の言葉やカテゴリーで探してみてください。</p></div>
+      <div class="catalog-end">✳ &nbsp; ここまで見てくれて、ありがとうございます。</div>
+    </div>
+  </section>
+  <script>
+    const buttons = [...document.querySelectorAll('[data-filter]')];
+    const input = document.querySelector('#project-search');
+    const select = document.querySelector('#project-sort');
+    const grid = document.querySelector('#project-grid');
+    const count = document.querySelector('#project-count');
+    const empty = document.querySelector('#empty-projects');
+    let category = 'すべて';
+    function update() {
+      const q = (input?.value || '').normalize('NFKC').toLocaleLowerCase('ja');
+      const cards = [...grid.querySelectorAll('.project-card')];
+      cards.sort((a,b) => {
+        if (select?.value === 'name') return a.dataset.title.localeCompare(b.dataset.title,'ja');
+        if (select?.value === 'recent') return b.dataset.updated.localeCompare(a.dataset.updated);
+        return 0;
+      }).forEach(c => grid.appendChild(c));
+      let visible=0;
+      for (const card of cards) {
+        const match = (category === 'すべて' || card.dataset.category === category) && (card.dataset.search || '').normalize('NFKC').includes(q);
+        card.hidden = !match;
+        if (match) visible++;
+      }
+      count.textContent = visible + '件';
+      empty.hidden = visible > 0;
+    }
+    buttons.forEach(button => button.addEventListener('click',()=>{
+      category = button.dataset.filter;
+      buttons.forEach(b=>{const selected = b.dataset.filter === category;b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',String(selected));});
+      update();
+    }));
+    input?.addEventListener('input',update);
+    select?.addEventListener('change',update);
+    buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter === category)));
+  </script>
+</Layout>

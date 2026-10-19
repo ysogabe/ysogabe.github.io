@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+const { title = 'ysogabe — 小さなアイデアの記録', description = '暮らしの中の小さな疑問から、ソフトウェアやものづくりへ。個人開発プロジェクトのポートフォリオ。' } = Astro.props;
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f9f8f3" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href={new URL(path, Astro.site)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label="ysogabe トップページ">
+          <svg class="brand-leaf" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M19 32c-1-12 5-19 16-22-1 13-5 19-16 22Z" fill="#83AA90"/><path d="M16 30C7 28 5 20 5 12c10 1 17 6 16 16" fill="#538C77"/><path d="M19 36c-2-10 2-17 11-23" stroke="#326F61" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <span>ysogabe<span class="brand-dot">.</span></span>
+        </a>
+        <nav class="nav-links" aria-label="メインナビゲーション">
+          <a class:list={['nav-link',{active:path==='/'}]} href="/">Home</a>
+          <a class:list={['nav-link',{active:path.startsWith('/projects')}]} href="/projects/">Projects</a>
+          <a class:list={['nav-link',{active:path.startsWith('/about')}]} href="/about/">About</a>
+        </nav>
+        <a class="header-github" href="https://github.com/ysogabe" target="_blank" rel="noopener noreferrer" aria-label="GitHubプロフィールを開く">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.11.77-.24.77-.54v-2.14c-3.13.68-3.79-1.33-3.79-1.33-.5-1.31-1.24-1.66-1.24-1.66-1.03-.71.08-.7.08-.7 1.14.08 1.74 1.16 1.74 1.16 1.01 1.74 2.67 1.24 3.32.95.1-.73.4-1.24.72-1.53-2.5-.29-5.13-1.25-5.13-5.55 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.42.11-2.97 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.13-1.45 3.07-1.15 3.07-1.15.62 1.55.23 2.69.12 2.97.73.79 1.15 1.79 1.15 3.02 0 4.31-2.63 5.26-5.15 5.54.41.36.77 1.05.77 2.12v3.15c0 .3.2.66.78.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <details class="mobile-menu">
+          <summary aria-label="メニューを開く"><span>☰</span></summary>
+          <nav aria-label="モバイルナビゲーション">
+            <a href="/">Home</a><a href="/projects/">Projects</a><a href="/about/">About</a>
+            <a href="https://github.com/ysogabe">GitHub ↗</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div><div class="footer-brand">☘ ysogabe.</div><p>気になることを、少しずつかたちに。</p></div>
+        <div class="footer-links"><a href="/projects/">Projects</a><a href="/about/">About</a><a href="https://github.com/ysogabe" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+        <small>© {new Date().getFullYear()} ysogabe · Made with care & Astro</small>
+      </div>
+    </footer>
+  </body>
+</html>

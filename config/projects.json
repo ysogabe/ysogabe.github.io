@@ -1,0 +1,109 @@
+{
+  "username": "ysogabe",
+  "exclude": [
+    "ysogabe.github.io"
+  ],
+  "featured": [
+    "miharashi",
+    "memo-collector",
+    "miharashi-panel"
+  ],
+  "projects": {
+    "miharashi": {
+      "title": "Miharashi",
+      "category": "暮らしと見守り",
+      "subtitle": "サーバーの今を、ひとつの画面に。",
+      "description": "サーバーの状態や天気、室内環境、写真など。暮らしの中の情報を、ひとつのモニターに映すキオスク・ダッシュボード。",
+      "icon": "🏡",
+      "image": "https://raw.githubusercontent.com/ysogabe/miharashi/main/site/images/status.jpg",
+      "site": "https://ysogabe.github.io/miharashi/",
+      "tags": [
+        "Linux",
+        "Rust",
+        "ダッシュボード"
+      ],
+      "features": [
+        "CPU・GPUの状態や電力をわかりやすく表示",
+        "写真を大きな画面でゆっくり楽しむ",
+        "天気・室内環境・地震情報をまとめる",
+        "航空機やAIエージェントの状態も表示"
+      ],
+      "story": "普段使っているサーバーを、数字だけではなく暮らしに馴染むかたちで見えるように。写真や身近な情報も一緒に映す、日常のための小さな表示システムです。"
+    },
+    "memo-collector": {
+      "title": "Context Capture",
+      "category": "記録と整理",
+      "subtitle": "今見ている画面に、声でひと言メモを。",
+      "description": "画面のスクリーンショットと、話した言葉を一緒に残すmacOSアプリ。思いついたことを、あとから探せる記録に。",
+      "icon": "📝",
+      "image": "https://raw.githubusercontent.com/ysogabe/memo-collector/main/lp/assets/app-inbox.png",
+      "site": "https://ysogabe.github.io/memo-collector/",
+      "tags": [
+        "macOS",
+        "Swift",
+        "音声入力"
+      ],
+      "features": [
+        "ショートカット操作で音声メモを保存",
+        "画面・アプリ名・URLを一緒に記録",
+        "Inboxで編集・検索・整理",
+        "MCPを通してAIエージェントと連携"
+      ],
+      "story": "何かを見ながら浮かんだアイデアは、あとで思い出せないことがあります。その瞬間の画面とひと言を、面倒な操作なしで残すために作っているアプリです。"
+    },
+    "miharashi-panel": {
+      "title": "Miharashi Panel",
+      "category": "暮らしと見守り",
+      "subtitle": "手元の小さな画面から、モニターを操作する。",
+      "description": "Miharashiの画面切り替えや消灯を手元から操作するAndroidアプリ。使わないときは、静かな時計になります。",
+      "icon": "🎛️",
+      "image": "https://raw.githubusercontent.com/ysogabe/miharashi-panel/main/site/images/panel-v020.png",
+      "site": "https://ysogabe.github.io/miharashi-panel/",
+      "tags": [
+        "Android",
+        "操作パネル",
+        "IoT"
+      ],
+      "features": [
+        "画面をボタンやメニューから切り替える",
+        "表示を固定・巡回を再開する",
+        "モニターを消灯・点灯する",
+        "使わないときは低輝度の時計になる"
+      ],
+      "story": "いつも動いているMiharashiを、必要なときに手元から扱えるように。専用の小さな操作盤をつくるプロジェクトです。"
+    },
+    "ESP32_MamorioScanner": {
+      "title": "ESP32 Mamorio Scanner",
+      "category": "IoTと工作",
+      "subtitle": "小さな電波の手がかりを見つける。",
+      "description": "ESP32を利用したBLEスキャンの実験・ツール。身近なデバイスとセンサーをつなぐ取り組み。",
+      "icon": "📡",
+      "tags": [
+        "ESP32",
+        "BLE"
+      ]
+    },
+    "360-panorama-viewer": {
+      "title": "360 Panorama Viewer",
+      "category": "写真と風景",
+      "subtitle": "写真の向こうに、もう一度入り込む。",
+      "description": "360度写真をブラウザで見渡すためのビューアー。",
+      "icon": "📷",
+      "tags": [
+        "写真",
+        "Web"
+      ]
+    },
+    "agent-dev-workflow-lp": {
+      "title": "Agent Dev Workflow",
+      "category": "AIとものづくり",
+      "subtitle": "AIと一緒につくるための、仕組みづくり。",
+      "description": "AIエージェントを活用した開発ワークフローの紹介サイト。",
+      "icon": "✨",
+      "tags": [
+        "AI",
+        "開発支援"
+      ]
+    }
+  }
+}

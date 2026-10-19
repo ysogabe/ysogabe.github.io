@@ -1,0 +1,16 @@
+---
+import { projectUrl, formatDate } from '../lib/projects.js';
+const { project, index = 0 } = Astro.props;
+---
+<article class="project-card" data-category={project.category} data-search={(project.title+' '+project.description+' '+project.category+' '+project.tags.join(' ')).toLowerCase()} data-updated={project.updated_at || ''} data-title={project.title.toLowerCase()}>
+  <a href={projectUrl(project)} class:list={['project-art','tone-'+(index % 6)]} aria-label={project.title+' の詳細'}>
+    {project.image ? <img src={project.image} alt={project.title+' の画面イメージ'} loading="lazy" decoding="async" referrerpolicy="no-referrer" /> : <div class="fallback-art"><span class="art-bloom">✳</span><span class="fallback-icon">{project.icon}</span><span class="art-orbit"></span></div>}
+    <span class="art-corner">{project.category}</span>
+  </a>
+  <div class="project-card-body">
+    <div class="project-card-title-row"><span class="project-icon" aria-hidden="true">{project.icon}</span><h3><a href={projectUrl(project)}>{project.title}</a></h3><span class="arrow-mini">↗</span></div>
+    <p class="project-description">{project.description}</p>
+    <div class="tag-row"><span class="soft-tag category-tag">{project.category}</span>{project.tags.slice(0,2).map(tag => <span class="soft-tag">{tag}</span>)}</div>
+    <div class="card-bottom"><a href={projectUrl(project)} class="text-link">くわしく見る <span aria-hidden="true">↗</span></a>{project.updated_at && <time datetime={project.updated_at} class="card-date">{formatDate(project.updated_at)}</time>}</div>
+  </div>
+</article>

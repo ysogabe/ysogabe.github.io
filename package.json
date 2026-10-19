@@ -1,0 +1,19 @@
+{
+  "name": "ysogabe-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "sync": "node scripts/sync-projects.mjs",
+    "build": "npm run sync && astro build",
+    "preview": "astro preview",
+    "check:content": "node scripts/check-content.mjs"
+  },
+  "dependencies": {
+    "astro": "7.4.0"
+  },
+  "engines": {
+    "node": ">=22.22.0"
+  }
+}

@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Scene from '../components/Scene.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { featured, recent, projects, projectUrl, formatDate } from '../lib/projects.js';
+const count = projects.length;
+---
+<Layout title="ysogabe — 気になることを、少しずつかたちに。">
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="eyebrow-dot">✳</span> Small ideas, thoughtful projects</span>
+      <h1>暮らしと技術の<br />あいだを、<em>やさしく。</em></h1>
+      <p>日々の小さな気づきから、ちょっと不思議な実験まで。<br class="desktop-only" />ソフトウェア、AI、IoT、写真など、気になることを少しずつかたちにしています。</p>
+      <div class="hero-actions"><a href="/projects/" class="btn btn-primary">つくったものを見る <span>↗</span></a><a href="/about/" class="btn btn-outline">このサイトについて</a></div>
+      <div class="hero-footnote"><span class="hero-foot-symbol">❀</span> 好奇心のおもむくままに、ものづくり。</div>
+    </div>
+    <div class="hero-visual"><Scene /></div>
+  </section>
+  <div class="hero-bottom-line"></div>
+  <section class="section wrap" aria-labelledby="featured-title">
+    <div class="section-head"><div><div class="section-kicker">PICK UP</div><h2 id="featured-title"><span class="section-symbol coral">✳</span> 注目のプロジェクト</h2><p>日々の暮らしや仕事のそばで育っている、小さな道具たち。</p></div><a href="/projects/" class="under-link">すべてのプロジェクト <span>↗</span></a></div>
+    <div class="card-grid">
+      {featured.map((project, index) => <ProjectCard project={project} index={index} />)}
+    </div>
+  </section>
+  <section class="section wrap" aria-label="もっと知る">
+    <div class="info-grid">
+      <a href="/projects/" class="info-card interest-card">
+        <span class="info-heading"><span class="info-icon">✿</span> いろいろな興味 <span class="info-chevron">↗</span></span>
+        <p>身近な暮らしの道具から、AIや電子工作まで。<br />つくって、試して、また考えています。</p>
+        <div class="interest-icons"><span>🌱 暮らし</span><span>✨ AI</span><span>📡 IoT</span><span>📷 写真</span></div>
+      </a>
+      <div class="info-card updates-card">
+        <span class="info-heading"><span class="info-icon">◷</span> 最近の更新</span>
+        {recent.length > 0 ? <ul class="update-list">{recent.slice(0,3).map(p=><li><span class="timeline-dot"></span><div><time datetime={p.updated_at}>{formatDate(p.updated_at)}</time><a href={projectUrl(p)}>{p.title}</a></div></li>)}</ul> : <p>GitHubから更新情報を読み込んでいます。</p>}
+        <a href="/projects/" class="under-link small">すべて見る ↗</a>
+      </div>
+      <a href="/about/" class="info-card about-card">
+        <span class="info-heading"><span class="info-icon">☘</span> このサイトについて <span class="info-chevron">↗</span></span>
+        <p>作っているもの、考えていること、途中の実験も。そんな個人のものづくりをまとめた場所です。</p>
+        <div class="stacked-flower" aria-hidden="true">✿<span>☘</span></div>
+        <span class="outline-small">もう少し読む →</span>
+      </a>
+    </div>
+  </section>
+  <section class="closing-note wrap">
+    <span aria-hidden="true">☘</span><p>ここにあるのは、完成品だけではありません。<br />つくる途中の楽しさも、一緒に残していきたいと思います。</p><span class="closing-count">{count} public projects & counting</span>
+  </section>
+</Layout>
