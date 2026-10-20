@@ -39,7 +39,7 @@ assert.equal(buildProjects(seed, config, new Date('2100-01-01T00:00:00Z')).lengt
 for (const patch of [{private:true}, {visibility:'private'}, {fork:true}, {archived:true}, {updated_at:undefined}]) {
   assert.equal(buildProjects([{...fixture, ...patch}], config, new Date('2026-01-01T00:00:00Z')).some(p => p.slug === 'fixture'), false);
 }
-const curatedFields = new Set(['slug', 'title', 'category', 'site', 'description', 'story', 'features']);
+const curatedFields = new Set(['slug', 'title', 'category', 'site', 'image', 'description', 'story', 'features']);
 const expectedSites = new Map([
   ['hogo-meter', 'https://hogo-meter-intro.akebi.dam-lab.work/'],
   ['iryouhi', 'https://iryouhi-intro.akebi.dam-lab.work/'],
@@ -51,6 +51,7 @@ for (const entry of config.curatedProjects) {
   assert.match(entry.slug, /^[a-z0-9-]+$/);
   for (const key of Object.keys(entry)) assert.ok(curatedFields.has(key), 'Unexpected curated field: ' + key);
   assert.equal(new URL(entry.site).href, expectedSites.get(entry.slug));
+  if (entry.image) assert.equal(new URL(entry.image).protocol, 'https:', 'Curated image must use HTTPS: ' + entry.slug);
   for (const field of ['title', 'category', 'description', 'story']) assert.ok(entry[field]);
   assert.ok(entry.features.length);
   assert.ok(!/https?:|github\.com/i.test([entry.title, entry.description, entry.story, ...entry.features].join(' ')));
