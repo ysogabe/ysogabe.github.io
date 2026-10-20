@@ -14,9 +14,9 @@
 - 文章・デザイン優先のやさしいUI、レスポンシブ対応
 - GitHub REST APIから**公開**リポジトリのみビルド時に同期（ブラウザからAPI呼び出しなし）
 - カテゴリ絞り込み、キーワード検索、並べ替え
-- 手動紹介情報でGitHubメタデータを上書き（`config/projects.json`）
+- 手動紹介情報でGitHubメタデータを上書きし、公開LPの紹介も追加（`config/projects.json`）
 - GitHub Actionsでmain push・毎日6:23 JST・手動実行のビルドと公開
-- GitHub API停止時にはレビュー済みのシードJSONを使用
+- GitHub API停止時には公開シードJSONを使用し、同じ掲載期限を適用
 
 ## 初回公開
 
@@ -49,16 +49,22 @@ GitHub REST APIが利用できない環境では `src/data/projects.generated.js
 - `src/styles/global.css`: 色・余白・レスポンシブ等のUI
 - `src/data/projects.generated.json`: オフライン・API障害時の最低限の公開シード（秘密情報を入れない）
 
-`featured` には公開リポジトリ名だけ設定してください。別のプロジェクトに対する案内URLもHTTPSに限定します。
+`featured` には公開リポジトリ名または `curatedProjects` の紹介用slugを設定します。`curatedProjects` は公開ブランド名・カテゴリ・LP・説明・背景・主な機能だけを手動管理し、API同期データとは分離します。URLはHTTPSに限定します。紹介のみの項目にはリポジトリリンクや推測した更新日を表示しません。
 
 ### データ公開ポリシー
 
-サイトは `GET /users/ysogabe/repos?type=owner` で取得した公開情報のみを対象とし、`private`・fork・archive・別オーナーのリポジトリを除外します。秘密の認証情報、GitHub Actionsのトークンや非公開リポジトリの情報をHTMLやJSONに埋め込みません。
+自動同期は `GET /users/ysogabe/repos?type=owner` で取得した公開情報のみを対象とし、`private`・fork・archive・別オーナーのリポジトリを除外します。秘密の認証情報、GitHub Actionsのトークンや非公開リポジトリの情報をHTMLやJSONに埋め込みません。
+
+公開リポジトリは最終コード更新（`pushed_at` をシードの `updated_at` に格納）から1暦年未満のみ掲載します。UTCの同時刻の翌年応当日を期限とし、2月29日は翌年2月28日へ丸めます。期限ちょうど・日時不正・欠損の項目は除外します。API同期の成否によらず、ビルド時の共通処理で一覧・検索・注目・最近の更新・詳細ルート・関連紹介・sitemapへ適用します。
+
+公開LPの紹介は `curatedProjects` に一般公開できる内容のみを登録します。公開されていないソースの自動取得やメタデータ同期は行いません。
+
+`npm run check:content` で期限境界とデータを検証し、ビルド後は `npm run check:content -- --built` で生成ページとsitemapも検証できます。
 
 ## 公開済みプロジェクトのLPについて
 
-Miharashi、Context Capture、Miharashi Panelに独立したLPがある場合は、詳細ページから既存のURLへリンクします。このリポジトリ側では既存LPを改変しません。
+hogo-meter（保護猫のおせわメーター）、保護動物 医療費管理、デジタル麻雀システムは公開LPへのリンクから紹介します。Miharashi、Context Capture、Miharashi Panelも掲載対象であれば既存LPへリンクします。このリポジトリ側では既存LPを改変しません。
 
 ## 注意
 
-トップの猫・植物・PCのイラストはCSSベースの装飾です。掲載するプロジェクト画像は各公開リポジトリの実際の公開画像を参照します。自動分類・説明文は編集可能であり、分類や説明が必ず正確とは限りません。
+トップの猫・植物・PCのイラストはCSSベースの装飾です。プロジェクト画像は公開画像を参照し、画像を設定しない紹介には既存の装飾イラストを表示します。自動分類・説明文は編集可能であり、分類や説明が必ず正確とは限りません。

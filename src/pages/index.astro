@@ -32,7 +32,7 @@ const count = projects.length;
       </a>
       <div class="info-card updates-card">
         <span class="info-heading"><span class="info-icon">◷</span> 最近の更新</span>
-        {recent.length > 0 ? <ul class="update-list">{recent.slice(0,3).map(p=><li><span class="timeline-dot"></span><div><time datetime={p.updated_at}>{formatDate(p.updated_at)}</time><a href={projectUrl(p)}>{p.title}</a></div></li>)}</ul> : <p>GitHubから更新情報を読み込んでいます。</p>}
+        {recent.length > 0 ? <ul class="update-list">{recent.slice(0,3).map(p=><li><span class="timeline-dot"></span><div><time datetime={p.updated_at}>{formatDate(p.updated_at)}</time><a href={projectUrl(p)}>{p.title}</a></div></li>)}</ul> : <p>最近の更新はありません。</p>}
         <a href="/projects/" class="under-link small">すべて見る ↗</a>
       </div>
       <a href="/about/" class="info-card about-card">
@@ -44,6 +44,6 @@ const count = projects.length;
     </div>
   </section>
   <section class="closing-note wrap">
-    <span aria-hidden="true">☘</span><p>ここにあるのは、完成品だけではありません。<br />つくる途中の楽しさも、一緒に残していきたいと思います。</p><span class="closing-count">{count} public projects & counting</span>
+    <span aria-hidden="true">☘</span><p>ここにあるのは、完成品だけではありません。<br />つくる途中の楽しさも、一緒に残していきたいと思います。</p><span class="closing-count">{count} projects & counting</span>
   </section>
 </Layout>

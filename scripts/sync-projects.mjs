@@ -30,7 +30,7 @@ async function load() {
         description: r.description || '',
         topics: Array.isArray(r.topics) ? r.topics : [],
         language: r.language || '',
-        updated_at: r.pushed_at || r.updated_at || '',
+        updated_at: r.pushed_at || '',
         stargazers_count: r.stargazers_count || 0,
         fork: false,
         archived: false
