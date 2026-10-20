@@ -4,7 +4,7 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import { projects, categoryNames } from '../../lib/projects.js';
 const sorted = [...projects].sort((a,b) => (Number(b.featured)-Number(a.featured)) || (b.updated_at||'').localeCompare(a.updated_at||''));
 ---
-<Layout title="Projects | ysogabe" description="ものづくりの一覧。GitHubに公開しているソフトウェアや実験を、やさしく紹介します。">
+<Layout title="Projects | ysogabe" description="ものづくりの一覧。暮らしの道具や公開サービス、ソフトウェアの実験を紹介します。">
   <section class="page-intro wrap">
     <span class="eyebrow">THE LITTLE COLLECTION</span>
     <div class="page-title-row"><div><h1>Projects<span class="heading-sprig">✿</span></h1><p>「こんなものがあったらいいな」から生まれた、いろいろな取り組み。<br />気になったものから、のぞいてみてください。</p></div><div class="page-decoration" aria-hidden="true">☘ <span>✳</span> ✿</div></div>
@@ -14,7 +14,7 @@ const sorted = [...projects].sort((a,b) => (Number(b.featured)-Number(a.featured
       <div class="aside-title">✿ <span>カテゴリー</span></div>
       <div class="aside-caption">興味のある分野から探す</div>
       <nav class="aside-category" aria-label="カテゴリー">{categoryNames.map((name,index)=><button class:list={['side-filter',{selected:index===0}]} type="button" data-filter={name}><span>{['◈','⌂','▤','◎','▧','✳','❋'][index]}</span>{name}</button>)}</nav>
-      <div class="aside-bottom"><span>☘</span><p>小さなアイデアを、<br />ひとつずつ。</p><small>更新情報はGitHubと連動しています。</small></div>
+      <div class="aside-bottom"><span>☘</span><p>小さなアイデアを、<br />ひとつずつ。</p><small>公開リポジトリの更新情報はGitHubと連動しています。</small></div>
     </aside>
     <div class="catalog-main">
       <div class="catalog-tools">
