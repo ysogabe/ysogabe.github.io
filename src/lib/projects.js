@@ -61,7 +61,7 @@ export function buildProjects(repositories = raw, settings = config, now = new D
     site: safeUrl(p.site),
     subtitle: '',
     icon: p.category === '記録と整理' ? '📝' : '🏡',
-    image: '',
+    image: safeUrl(p.image),
     tags: [],
     featured: Boolean(safeUrl(p.site)) || settings.featured.includes(p.slug)
   }));
