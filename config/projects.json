@@ -4,12 +4,12 @@
     "ysogabe.github.io"
   ],
   "featured": [
-    "miharashi",
-    "memo-collector",
-    "miharashi-panel",
     "hogo-meter",
     "iryouhi",
-    "digital-mahjong"
+    "digital-mahjong",
+    "miharashi",
+    "memo-collector",
+    "miharashi-panel"
   ],
   "projects": {
     "miharashi": {

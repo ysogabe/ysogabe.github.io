@@ -49,7 +49,7 @@ GitHub REST APIが利用できない環境では `src/data/projects.generated.js
 - `src/styles/global.css`: 色・余白・レスポンシブ等のUI
 - `src/data/projects.generated.json`: オフライン・API障害時の最低限の公開シード（秘密情報を入れない）
 
-`featured` には公開リポジトリ名または `curatedProjects` の紹介用slugを設定します。`curatedProjects` は公開ブランド名・カテゴリ・LP・説明・背景・主な機能だけを手動管理し、API同期データとは分離します。URLはHTTPSに限定します。紹介のみの項目にはリポジトリリンクや推測した更新日を表示しません。
+`featured` には公開リポジトリ名または `curatedProjects` の紹介用slugを優先順で設定します。注目には掲載対象のうち有効なHTTPSの `site`（LP）がある項目を自動で含め、LPなしの手動指定項目より先に表示します。同じグループ内では `featured` の設定順を優先し、未指定のLP付き項目はその後に続きます。一覧のおすすめ順もこの順序にそろえます。`curatedProjects` は公開ブランド名・カテゴリ・LP・説明・背景・主な機能だけを手動管理し、API同期データとは分離します。URLはHTTPSに限定します。紹介のみの項目にはリポジトリリンクや推測した更新日を表示しません。
 
 ### データ公開ポリシー
 

@@ -48,7 +48,7 @@ export function buildProjects(repositories = raw, settings = config, now = new D
         tags: (override.tags?.length ? override.tags : [r.language, ...(r.topics || []).slice(0,2)]).filter(Boolean).slice(0,4),
         features: override.features || [],
         story: override.story || '',
-        featured: settings.featured.includes(r.name)
+        featured: Boolean(safeUrl(override.site)) || settings.featured.includes(r.name)
       };
     });
   const curated = (settings.curatedProjects || []).map(p => ({
@@ -63,12 +63,18 @@ export function buildProjects(repositories = raw, settings = config, now = new D
     icon: p.category === '記録と整理' ? '📝' : '🏡',
     image: '',
     tags: [],
-    featured: settings.featured.includes(p.slug)
+    featured: Boolean(safeUrl(p.site)) || settings.featured.includes(p.slug)
   }));
   return [...publicProjects, ...curated];
 }
 export const projects = buildProjects();
-export const featured = config.featured.map(n => projects.find(p => p.slug === n)).filter(Boolean);
+export function selectFeatured(items, settings = config) {
+  const priority = new Map(settings.featured.map((slug, index) => [slug, index]));
+  return [...new Map(items.filter(p => p.site || priority.has(p.slug)).map(p => [p.slug, p])).values()]
+    .sort((a, b) => Number(Boolean(b.site)) - Number(Boolean(a.site))
+      || (priority.get(a.slug) ?? Infinity) - (priority.get(b.slug) ?? Infinity));
+}
+export const featured = selectFeatured(projects);
 export const recent = [...projects].filter(p => p.updated_at).sort((a,b)=>b.updated_at.localeCompare(a.updated_at)).slice(0,4);
 export const categoryNames = ['すべて','暮らしと見守り','記録と整理','IoTと工作','写真と風景','AIとものづくり','その他の実験'];
 export function projectUrl(project) { return '/projects/' + encodeURIComponent(project.slug) + '/'; }
