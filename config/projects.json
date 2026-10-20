@@ -1,7 +1,8 @@
 {
   "username": "ysogabe",
   "exclude": [
-    "ysogabe.github.io"
+    "ysogabe.github.io",
+    "agent-dev-workflow-lp"
   ],
   "featured": [
     "hogo-meter",
@@ -95,17 +96,6 @@
       "tags": [
         "写真",
         "Web"
-      ]
-    },
-    "agent-dev-workflow-lp": {
-      "title": "Agent Dev Workflow",
-      "category": "AIとものづくり",
-      "subtitle": "AIと一緒につくるための、仕組みづくり。",
-      "description": "AIエージェントを活用した開発ワークフローの紹介サイト。",
-      "icon": "✨",
-      "tags": [
-        "AI",
-        "開発支援"
       ]
     }
   },

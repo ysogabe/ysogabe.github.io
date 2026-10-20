@@ -48,18 +48,6 @@
     "archived": false
   },
   {
-    "name": "agent-dev-workflow-lp",
-    "full_name": "ysogabe/agent-dev-workflow-lp",
-    "html_url": "https://github.com/ysogabe/agent-dev-workflow-lp",
-    "description": "公開LP: 複数コーディングエージェントの運用設計（環境固有値を含まない一般化版）",
-    "topics": [],
-    "language": "",
-    "updated_at": "2026-09-19T13:18:40Z",
-    "stargazers_count": 0,
-    "fork": false,
-    "archived": false
-  },
-  {
     "name": "claude-code-lxc",
     "full_name": "ysogabe/claude-code-lxc",
     "html_url": "https://github.com/ysogabe/claude-code-lxc",
