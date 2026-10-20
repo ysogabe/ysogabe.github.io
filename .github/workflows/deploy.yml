@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-node@v4
         with:
@@ -36,6 +38,29 @@ jobs:
         run: npm run build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate generated pages
+        run: npm run check:content -- --built
+
+      # Astro source files cannot be built by the legacy Jekyll pipeline.
+      # Use only the existing, repository-scoped GITHUB_TOKEN; never a PAT.
+      - name: Use GitHub Actions as the Pages source
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const repo = context.repo;
+            const { data: site } = await github.request('GET /repos/{owner}/{repo}/pages', repo);
+            core.info('Pages build type: ' + site.build_type);
+            if (site.build_type !== 'workflow') {
+              await github.request('PUT /repos/{owner}/{repo}/pages', {
+                ...repo,
+                build_type: 'workflow'
+              });
+            }
+            const { data: configured } = await github.request('GET /repos/{owner}/{repo}/pages', repo);
+            if (configured.build_type !== 'workflow') {
+              core.setFailed('Pages source must be GitHub Actions (workflow).');
+            }
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
