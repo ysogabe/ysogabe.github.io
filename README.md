@@ -63,7 +63,7 @@ GitHub REST APIが利用できない環境では `src/data/projects.generated.js
 
 ## 公開済みプロジェクトのLPについて
 
-hogo-meter（保護猫のおせわメーター）、保護動物 医療費管理、デジタル麻雀システムは公開LPへのリンクから紹介します。Miharashi、Context Capture、Miharashi Panelも掲載対象であれば既存LPへリンクします。このリポジトリ側では既存LPを改変しません。
+hogo-meter（保護猫のおせわメーター）、保護動物 医療費管理、デジタル麻雀システムは公開LPへのリンクから紹介します。Miharashi、Context Capture、Miharashi Panel、GeoFrame RAW Assistも掲載対象であれば既存LPへリンクします。このリポジトリ側では既存LPを改変しません。
 
 ## 注意
 
