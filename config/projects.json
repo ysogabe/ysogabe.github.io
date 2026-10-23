@@ -10,7 +10,8 @@
     "digital-mahjong",
     "miharashi",
     "memo-collector",
-    "miharashi-panel"
+    "miharashi-panel",
+    "geoframe-raw-assist"
   ],
   "projects": {
     "miharashi": {
@@ -75,6 +76,27 @@
         "使わないときは低輝度の時計になる"
       ],
       "story": "いつも動いているMiharashiを、必要なときに手元から扱えるように。専用の小さな操作盤をつくるプロジェクトです。"
+    },
+    "geoframe-raw-assist": {
+      "title": "GeoFrame RAW Assist",
+      "category": "写真と風景",
+      "subtitle": "旅の写真を、選んで、仕上げる。",
+      "description": "旅行写真のJPEGとRAW（ソニーαのARW）のペアを解析し、似たカットをまとめて代表を選び、RAW現像が効く写真を推薦するmacOSアプリ。現像・ブラケット合成・書き出しまでを手元のMacで。",
+      "icon": "📷",
+      "image": "https://ysogabe.github.io/geoframe-raw-assist/images/overview.png",
+      "site": "https://ysogabe.github.io/geoframe-raw-assist/",
+      "tags": [
+        "macOS",
+        "Tauri",
+        "RAW現像"
+      ],
+      "features": [
+        "似たカットを撮影グループにまとめて代表を選ぶ",
+        "RAW現像が効く写真を4段階で推薦",
+        "プリセットとスライダーで現像、ブラケットを1枚に合成",
+        "EXIFを引き継いで書き出し、「写真」アプリに登録"
+      ],
+      "story": "旅先でたくさん撮った写真から、手をかける価値のある1枚を見つけるのは大変です。選別から現像までの手間を減らし、元のファイルには手を加えずに仕上げるためのアプリです。"
     },
     "ESP32_MamorioScanner": {
       "title": "ESP32 Mamorio Scanner",
