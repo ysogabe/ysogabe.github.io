@@ -11,6 +11,7 @@
     "miharashi",
     "memo-collector",
     "miharashi-panel",
+    "geoframe",
     "geoframe-raw-assist"
   ],
   "projects": {
@@ -76,6 +77,27 @@
         "使わないときは低輝度の時計になる"
       ],
       "story": "いつも動いているMiharashiを、必要なときに手元から扱えるように。専用の小さな操作盤をつくるプロジェクトです。"
+    },
+    "geoframe": {
+      "title": "GeoFrame",
+      "category": "写真と風景",
+      "subtitle": "撮った写真を、手元で整えて、見せる準備まで。",
+      "description": "ローカルフォルダやGoogle Driveの写真をSQLiteに索引し、表示用画像の生成、品質解析、撮影地の修正、旅行ブログの下書きまでを行うセルフホスト型の写真管理基盤。Rustの単一バイナリで動き、写真の表示はMiharashiが担います。",
+      "icon": "🗺️",
+      "image": "https://ysogabe.github.io/geoframe/images/hero.png",
+      "site": "https://ysogabe.github.io/geoframe/",
+      "tags": [
+        "Rust",
+        "セルフホスト",
+        "写真管理"
+      ],
+      "features": [
+        "ローカルとGoogle Driveの写真をひとつのカタログに索引",
+        "表示用画像の生成と、品質解析による代表選び",
+        "位置の無い写真の撮影地を推定し、地図で手直し",
+        "旅行ブログの下書きを作り、静的HTMLで書き出し"
+      ],
+      "story": "撮った写真を、原本には手を付けずに整えて、見せる準備まで進めたい。そんな思いから、管理はGeoFrame、表示はMiharashiと役割を分けた写真管理基盤です。AIによる検索や場面の整理は任意で、設定するまで動きません。"
     },
     "geoframe-raw-assist": {
       "title": "GeoFrame RAW Assist",
