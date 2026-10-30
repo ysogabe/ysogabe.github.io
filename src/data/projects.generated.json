@@ -1,5 +1,17 @@
 [
   {
+    "name": "geoframe",
+    "full_name": "ysogabe/geoframe",
+    "html_url": "https://github.com/ysogabe/geoframe",
+    "description": "撮った写真を手元で整える、セルフホスト型の写真管理基盤（Rust の単一バイナリ）。表示は Miharashi が担う",
+    "topics": [],
+    "language": "Rust",
+    "updated_at": "2026-10-30T07:47:15Z",
+    "stargazers_count": 0,
+    "fork": false,
+    "archived": false
+  },
+  {
     "name": "geoframe-raw-assist",
     "full_name": "ysogabe/geoframe-raw-assist",
     "html_url": "https://github.com/ysogabe/geoframe-raw-assist",
