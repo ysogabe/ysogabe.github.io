@@ -44,6 +44,7 @@ GitHub REST APIが利用できない環境では `src/data/projects.generated.js
 ## メンテナンス
 
 - `config/projects.json`: 注目プロジェクト、紹介文、画像、カテゴリ、機能・背景、除外リストを編集
+  - `projects.<名前>.related`: 詳細ページの「こちらも」に、同じカテゴリより先に出す関連プロジェクトのslug（例: GeoFrameとMiharashi）
 - `scripts/sync-projects.mjs`: API同期、パブリック限定フィルタ、失敗時フォールバック
 - `src/lib/projects.js`: データ正規化とカテゴリ自動分類
 - `src/styles/global.css`: 色・余白・レスポンシブ等のUI
