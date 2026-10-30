@@ -17,6 +17,7 @@
   "projects": {
     "miharashi": {
       "title": "Miharashi",
+      "related": ["geoframe"],
       "category": "暮らしと見守り",
       "subtitle": "サーバーの今を、ひとつの画面に。",
       "description": "サーバーの状態や天気、室内環境、写真など。暮らしの中の情報を、ひとつのモニターに映すキオスク・ダッシュボード。",
@@ -80,6 +81,7 @@
     },
     "geoframe": {
       "title": "GeoFrame",
+      "related": ["miharashi"],
       "category": "写真と風景",
       "subtitle": "撮った写真を、手元で整えて、見せる準備まで。",
       "description": "ローカルフォルダやGoogle Driveの写真をSQLiteに索引し、表示用画像の生成、品質解析、撮影地の修正、旅行ブログの下書きまでを行うセルフホスト型の写真管理基盤。Rustの単一バイナリで動き、写真の表示はMiharashiが担います。",

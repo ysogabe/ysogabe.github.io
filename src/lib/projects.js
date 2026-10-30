@@ -47,6 +47,7 @@ export function buildProjects(repositories = raw, settings = config, now = new D
         site: safeUrl(override.site),
         tags: (override.tags?.length ? override.tags : [r.language, ...(r.topics || []).slice(0,2)]).filter(Boolean).slice(0,4),
         features: override.features || [],
+        related: override.related || [],
         story: override.story || '',
         featured: Boolean(safeUrl(override.site)) || settings.featured.includes(r.name)
       };
@@ -58,6 +59,7 @@ export function buildProjects(repositories = raw, settings = config, now = new D
     description: p.description,
     story: p.story,
     features: p.features || [],
+    related: [],
     site: safeUrl(p.site),
     subtitle: '',
     icon: p.category === '記録と整理' ? '📝' : '🏡',
