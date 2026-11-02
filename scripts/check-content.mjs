@@ -21,7 +21,7 @@ console.log('Configuration and public seed metadata are valid.');
 
 // Exercise the same normalization used by every page and the sitemap, including
 // offline seed builds. Fixed clocks make the calendar boundary reproducible.
-const { buildProjects, isActiveRepository, projects, featured, recent, projectUrl } = await import('../src/lib/projects.js');
+const { buildProjects, relatedProjects, isActiveRepository, projects, featured, recent, projectUrl } = await import('../src/lib/projects.js');
 const { default: assert } = await import('node:assert/strict');
 const updated = '2025-10-20T06:00:00Z';
 assert.equal(isActiveRepository(updated, new Date('2026-10-20T05:59:59.999Z')), true);
@@ -71,11 +71,12 @@ if (process.argv.includes('--built')) {
   for (const project of projects) {
     const route = projectUrl(project);
     const html = await readFile('dist' + route + 'index.html', 'utf8');
-    const related = projects.filter(p => p.slug !== project.slug && p.category === project.category).sort((a,b) => Number(b.featured) - Number(a.featured)).slice(0,3);
+    const related = relatedProjects(project);
     for (const item of related) {
       relatedSlugs.add(item.slug);
-      assert.ok(html.includes('href="' + projectUrl(item) + '" class="related-item"'));
+      assert.ok(html.includes('href="' + projectUrl(item) + '" class="related-item"'), 'Missing related link ' + item.slug + ' on ' + project.slug);
     }
+    assert.equal(html.match(/class="related-item"/g)?.length ?? 0, related.length, 'Related link count mismatch: ' + project.slug);
     assert.ok(catalog.includes('href="' + route + '"'));
     assert.ok(sitemap.includes('https://ysogabe.github.io' + route));
     if (expectedSites.has(project.slug)) {
