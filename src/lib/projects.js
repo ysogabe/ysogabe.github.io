@@ -79,5 +79,9 @@ export function selectFeatured(items, settings = config) {
 export const featured = selectFeatured(projects);
 export const recent = [...projects].filter(p => p.updated_at).sort((a,b)=>b.updated_at.localeCompare(a.updated_at)).slice(0,4);
 export const categoryNames = ['すべて','暮らしと見守り','記録と整理','IoTと工作','写真と風景','AIとものづくり','その他の実験'];
+export function relatedProjects(project, items = projects) {
+  const linked = project.related.map(slug => items.find(p => p.slug === slug)).filter(Boolean);
+  return [...linked, ...items.filter(p => p.slug !== project.slug && !linked.includes(p) && p.category === project.category).sort((a,b) => Number(b.featured) - Number(a.featured))].slice(0,3);
+}
 export function projectUrl(project) { return '/projects/' + encodeURIComponent(project.slug) + '/'; }
 export function formatDate(date) { return date ? new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(date)) : ''; }
