@@ -1,24 +1,12 @@
 [
   {
-    "name": "geoframe",
-    "full_name": "ysogabe/geoframe",
-    "html_url": "https://github.com/ysogabe/geoframe",
-    "description": "撮った写真を手元で整える、セルフホスト型の写真管理基盤（Rust の単一バイナリ）。表示は Miharashi が担う",
+    "name": "geoframe-photo-uploader",
+    "full_name": "ysogabe/geoframe-photo-uploader",
+    "html_url": "https://github.com/ysogabe/geoframe-photo-uploader",
+    "description": "macOS SwiftUI app that uploads original Apple Photos bytes directly to Google Drive 'GeoFrame' with MD5 deduplication.",
     "topics": [],
-    "language": "Rust",
-    "updated_at": "2026-10-30T07:47:15Z",
-    "stargazers_count": 0,
-    "fork": false,
-    "archived": false
-  },
-  {
-    "name": "geoframe-raw-assist",
-    "full_name": "ysogabe/geoframe-raw-assist",
-    "html_url": "https://github.com/ysogabe/geoframe-raw-assist",
-    "description": "...",
-    "topics": [],
-    "language": "Python",
-    "updated_at": "2026-10-23T21:52:40Z",
+    "language": "Swift",
+    "updated_at": "2026-11-21T14:57:19Z",
     "stargazers_count": 0,
     "fork": false,
     "archived": false
@@ -30,7 +18,19 @@
     "description": "Rust Linux kiosk dashboard: specifications, architecture, and interactive screen previews.",
     "topics": [],
     "language": "Rust",
-    "updated_at": "2026-10-20T05:45:55Z",
+    "updated_at": "2026-11-18T01:28:58Z",
+    "stargazers_count": 0,
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "geoframe",
+    "full_name": "ysogabe/geoframe",
+    "html_url": "https://github.com/ysogabe/geoframe",
+    "description": "撮った写真を手元で整える、セルフホスト型の写真管理基盤（Rust の単一バイナリ）。表示は Miharashi が担う",
+    "topics": [],
+    "language": "Rust",
+    "updated_at": "2026-11-20T10:54:55Z",
     "stargazers_count": 0,
     "fork": false,
     "archived": false
@@ -42,7 +42,31 @@
     "description": "hogo-meter と連携する Echo Show 5 向けのお世話パネル Android アプリ",
     "topics": [],
     "language": "Kotlin",
-    "updated_at": "2026-10-18T15:57:39Z",
+    "updated_at": "2026-11-01T11:27:20Z",
+    "stargazers_count": 0,
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "miharashi-panel",
+    "full_name": "ysogabe/miharashi-panel",
+    "html_url": "https://github.com/ysogabe/miharashi-panel",
+    "description": "Miharashi キオスクを手元で操作する Android アプリ(Echo Show 5 向け)",
+    "topics": [],
+    "language": "Kotlin",
+    "updated_at": "2026-11-19T09:02:41Z",
+    "stargazers_count": 0,
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "geoframe-raw-assist",
+    "full_name": "ysogabe/geoframe-raw-assist",
+    "html_url": "https://github.com/ysogabe/geoframe-raw-assist",
+    "description": "...",
+    "topics": [],
+    "language": "Rust",
+    "updated_at": "2026-10-29T23:06:58Z",
     "stargazers_count": 0,
     "fork": false,
     "archived": false
@@ -55,18 +79,6 @@
     "topics": [],
     "language": "Swift",
     "updated_at": "2026-10-17T13:07:32Z",
-    "stargazers_count": 0,
-    "fork": false,
-    "archived": false
-  },
-  {
-    "name": "miharashi-panel",
-    "full_name": "ysogabe/miharashi-panel",
-    "html_url": "https://github.com/ysogabe/miharashi-panel",
-    "description": "Miharashi キオスクを手元で操作する Android アプリ(Echo Show 5 向け)",
-    "topics": [],
-    "language": "Kotlin",
-    "updated_at": "2026-10-17T12:20:54Z",
     "stargazers_count": 0,
     "fork": false,
     "archived": false

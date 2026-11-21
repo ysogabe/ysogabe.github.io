@@ -12,7 +12,8 @@
     "memo-collector",
     "miharashi-panel",
     "geoframe",
-    "geoframe-raw-assist"
+    "geoframe-raw-assist",
+    "geoframe-photo-uploader"
   ],
   "projects": {
     "miharashi": {
@@ -121,6 +122,31 @@
         "EXIFを引き継いで書き出し、「写真」アプリに登録"
       ],
       "story": "旅先でたくさん撮った写真から、手をかける価値のある1枚を見つけるのは大変です。選別から現像までの手間を減らし、元のファイルには手を加えずに仕上げるためのアプリです。"
+    },
+    "geoframe-photo-uploader": {
+      "title": "GeoFrame Uploader",
+      "related": [
+        "geoframe",
+        "miharashi"
+      ],
+      "category": "写真と風景",
+      "subtitle": "写真の原本を、そのまま GeoFrame へ。",
+      "description": "Apple Photosの原本バイト列を一切加工せず、Google Drive「GeoFrame」へ届けるmacOSネイティブアプリ。MD5による重複チェックと再開可能アップロード、送信後の二重検証で安全に写真を送ります。",
+      "icon": "📤",
+      "image": "https://ysogabe.github.io/geoframe-photo-uploader/images/screen-main.png",
+      "site": "https://ysogabe.github.io/geoframe-photo-uploader/",
+      "tags": [
+        "macOS",
+        "SwiftUI",
+        "PhotoKit"
+      ],
+      "features": [
+        "PhotoKitの原本バイト列を無加工・EXIF保持のまま送信",
+        "選択時の自動重複チェックとDrive一覧のMD5照合",
+        "8 MiBチャンクの再開可能アップロードと二重検証",
+        "SwiftUIアプリとCLIの双方に対応し履歴をローカル記録"
+      ],
+      "story": "撮った写真の原本を壊さず、同じ写真を二度送らずにGeoFrameへ届けたい。そんな思いから、原本取得からGoogle Driveへの送信・検証までを手元のMacで完結させる送り手として作りました。"
     },
     "ESP32_MamorioScanner": {
       "title": "ESP32 Mamorio Scanner",
