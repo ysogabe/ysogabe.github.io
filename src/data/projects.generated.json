@@ -1,12 +1,24 @@
 [
   {
+    "name": "agent-board",
+    "full_name": "ysogabe/agent-board",
+    "html_url": "https://github.com/ysogabe/agent-board",
+    "description": "",
+    "topics": [],
+    "language": "TypeScript",
+    "updated_at": "2026-11-27T08:50:32Z",
+    "stargazers_count": 0,
+    "fork": false,
+    "archived": false
+  },
+  {
     "name": "geoframe-photo-uploader",
     "full_name": "ysogabe/geoframe-photo-uploader",
     "html_url": "https://github.com/ysogabe/geoframe-photo-uploader",
     "description": "macOS SwiftUI app that uploads original Apple Photos bytes directly to Google Drive 'GeoFrame' with MD5 deduplication.",
     "topics": [],
     "language": "Swift",
-    "updated_at": "2026-11-21T14:57:19Z",
+    "updated_at": "2026-11-24T03:59:04Z",
     "stargazers_count": 0,
     "fork": false,
     "archived": false
@@ -18,7 +30,7 @@
     "description": "Rust Linux kiosk dashboard: specifications, architecture, and interactive screen previews.",
     "topics": [],
     "language": "Rust",
-    "updated_at": "2026-11-18T01:28:58Z",
+    "updated_at": "2026-11-22T02:07:14Z",
     "stargazers_count": 0,
     "fork": false,
     "archived": false
@@ -30,7 +42,7 @@
     "description": "撮った写真を手元で整える、セルフホスト型の写真管理基盤（Rust の単一バイナリ）。表示は Miharashi が担う",
     "topics": [],
     "language": "Rust",
-    "updated_at": "2026-11-20T10:54:55Z",
+    "updated_at": "2026-11-26T14:02:39Z",
     "stargazers_count": 0,
     "fork": false,
     "archived": false

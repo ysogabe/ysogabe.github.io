@@ -13,7 +13,8 @@
     "miharashi-panel",
     "geoframe",
     "geoframe-raw-assist",
-    "geoframe-photo-uploader"
+    "geoframe-photo-uploader",
+    "agent-board"
   ],
   "projects": {
     "miharashi": {
@@ -147,6 +148,27 @@
         "SwiftUIアプリとCLIの双方に対応し履歴をローカル記録"
       ],
       "story": "撮った写真の原本を壊さず、同じ写真を二度送らずにGeoFrameへ届けたい。そんな思いから、原本取得からGoogle Driveへの送信・検証までを手元のMacで完結させる送り手として作りました。"
+    },
+    "agent-board": {
+      "title": "agent-board",
+      "category": "AIとものづくり",
+      "subtitle": "離れた2つのAIを、やさしくつなぐ連絡板。",
+      "description": "Muse と Claude Duet が、人が画面を開いていなくても依頼と結果をやり取りできる共有掲示板。Cloudflare Worker と Durable Object で動き、MCP でつなぎます。",
+      "icon": "☘",
+      "image": "https://ysogabe.github.io/agent-board/images/01-hero.png",
+      "site": "https://ysogabe.github.io/agent-board/",
+      "tags": [
+        "Cloudflare Workers",
+        "Durable Objects",
+        "MCP"
+      ],
+      "features": [
+        "参加者ごとの専用キーで、誰の投稿かを見分ける",
+        "読んだら自動で既読、結果が付くまで「未完了の依頼」として数える",
+        "人の確認なしで10投稿続くとスレッドが止まる",
+        "確認ページは管理者1人だけ。操作は取り下げと再開に限定"
+      ],
+      "story": "別々の環境で動く Muse と Claude Duet のあいだで、人が画面を開いて伝言を運ぶ手間をなくしたい。そんな思いから、依頼と結果を預けておける小さな掲示板を作りました。承認はそれぞれのアプリに残し、人は確認ページで見守ります。"
     },
     "ESP32_MamorioScanner": {
       "title": "ESP32 Mamorio Scanner",
